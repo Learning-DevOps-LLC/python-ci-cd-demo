@@ -1,4 +1,14 @@
 
+# Python CI + Docker Build & Push
+[![Python CI + Docker Build & Push](https://github.com/Learning-DevOps-LLC/python-ci-cd-demo/actions/workflows/ci-docker.yml/badge.svg?branch=main)](https://github.com/Learning-DevOps-LLC/python-ci-cd-demo/actions/workflows/ci-docker.yml)
+
+# Docker Pulls
+[![Docker Pulls](https://img.shields.io/docker/pulls/ashishsingh2110/python-ci-cd-demo.svg)](https://hub.docker.com/r/ashishsingh2110/python-ci-cd-demo)
+
+# Deployed
+[![Deployed](https://img.shields.io/badge/Live-Demo-green)](https://python-ci-cd-demo-wg2r.onrender.com/)
+
+
 # 🚀 Python CI/CD Demo with Docker & GitHub Actions
 
 This project demonstrates a simple Python web app using **Flask**, deployed with CI/CD pipelines using **GitHub Actions** and optionally **Docker + Render**.
