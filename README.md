@@ -1,3 +1,9 @@
+
+[![Python CI + Docker Build & Push](https://github.com/Learning-DevOps-LLC/python-ci-cd-demo/actions/workflows/ci-docker.yml/badge.svg?branch=main)](https://github.com/Learning-DevOps-LLC/python-ci-cd-demo/actions/workflows/ci-docker.yml)
+[![Docker Pulls](https://img.shields.io/docker/pulls/ashishsingh2110/python-ci-cd-demo.svg)](https://hub.docker.com/r/ashishsingh2110/python-ci-cd-demo)
+[![Deployed](https://img.shields.io/badge/Live-Demo-green)](https://python-ci-cd-demo-wg2r.onrender.com/)
+
+
 # My Flask CI/CD Project
 [![Python CI + Docker Build & Push](https://github.com/Learning-DevOps-LLC/python-ci-cd-demo/actions/workflows/ci-docker.yml/badge.svg?branch=main)](https://github.com/Learning-DevOps-LLC/python-ci-cd-demo/actions/workflows/ci-docker.yml)
 
