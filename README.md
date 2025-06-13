@@ -1,3 +1,6 @@
+# My Flask CI/CD Project
+[![Python CI + Docker Build & Push](https://github.com/Learning-DevOps-LLC/python-ci-cd-demo/actions/workflows/ci-docker.yml/badge.svg?branch=main)](https://github.com/Learning-DevOps-LLC/python-ci-cd-demo/actions/workflows/ci-docker.yml)
+
 # 🚀 Python CI/CD Demo with Docker & GitHub Actions
 
 This project demonstrates a simple Python web app using **Flask**, deployed with CI/CD pipelines using **GitHub Actions** and optionally **Docker + Render**.
