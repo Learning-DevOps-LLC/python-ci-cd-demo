@@ -7,7 +7,7 @@ on:
     branches: [ "main" ]
 
 permissions:
-  contents: write  # Needed to push changes to README.md
+  contents: write  # Allow pushing changes to README.md
 
 jobs:
   test:
@@ -30,11 +30,16 @@ jobs:
       - name: Run tests
         run: pytest
 
-      - name: Auto-insert CI, Docker, and Deploy badges into README
+      - name: Auto-insert CI, Docker, and Deploy badges with headings into README
         run: |
           FILE="README.md"
+          CI_BADGE_HEADER="# Python CI + Docker Build & Push"
           CI_BADGE='[![Python CI + Docker Build & Push](https://github.com/${{ github.repository }}/actions/workflows/ci-docker.yml/badge.svg?branch=main)](https://github.com/${{ github.repository }}/actions/workflows/ci-docker.yml)'
+
+          DOCKER_BADGE_HEADER="# Docker Pulls"
           DOCKER_BADGE='[![Docker Pulls](https://img.shields.io/docker/pulls/ashishsingh2110/python-ci-cd-demo.svg)](https://hub.docker.com/r/ashishsingh2110/python-ci-cd-demo)'
+
+          DEPLOY_BADGE_HEADER="# Deployed"
           DEPLOY_BADGE='[![Deployed](https://img.shields.io/badge/Live-Demo-green)](https://python-ci-cd-demo-wg2r.onrender.com/)'
 
           INSERTED=false
@@ -43,32 +48,37 @@ jobs:
             cp "$FILE" "$FILE.bak"
             echo "" > top.md
 
-            if ! grep -q "$CI_BADGE" "$FILE"; then
-              echo "Adding CI badge..."
+            if ! grep -qF "$CI_BADGE" "$FILE"; then
+              echo "Adding CI badge with header..."
+              echo "$CI_BADGE_HEADER" >> top.md
               echo "$CI_BADGE" >> top.md
+              echo "" >> top.md
               INSERTED=true
             fi
 
-            if ! grep -q "$DOCKER_BADGE" "$FILE"; then
-              echo "Adding Docker badge..."
+            if ! grep -qF "$DOCKER_BADGE" "$FILE"; then
+              echo "Adding Docker badge with header..."
+              echo "$DOCKER_BADGE_HEADER" >> top.md
               echo "$DOCKER_BADGE" >> top.md
+              echo "" >> top.md
               INSERTED=true
             fi
 
-            if ! grep -q "$DEPLOY_BADGE" "$FILE"; then
-              echo "Adding Deploy badge..."
+            if ! grep -qF "$DEPLOY_BADGE" "$FILE"; then
+              echo "Adding Deploy badge with header..."
+              echo "$DEPLOY_BADGE_HEADER" >> top.md
               echo "$DEPLOY_BADGE" >> top.md
+              echo "" >> top.md
               INSERTED=true
             fi
 
             if [ "$INSERTED" = true ]; then
-              echo -e "\n" >> top.md
               cat "$FILE.bak" >> top.md
               mv top.md "$FILE"
               git config --global user.name "github-actions"
               git config --global user.email "github-actions@github.com"
               git add "$FILE"
-              git commit -m "🤖 Auto-insert status, Docker, and deploy badges [skip ci]"
+              git commit -m "🤖 Auto-insert badges with headings [skip ci]"
               git push
             else
               echo "All badges already present."
