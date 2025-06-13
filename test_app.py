@@ -6,12 +6,12 @@ def client():
     app.testing = True
     return app.test_client()
 
-def test_home_status_code(client):
-    response = client.get("/")
+def test_home(client):
+    response = client.get('/')
     assert response.status_code == 200
+    assert b"Hello from CI/CD Pipeline!<br>Ashish Singh" in response.data
 
-def test_home_content(client):
-    response = client.get("/")
-    assert b"Hello, Ashish Singh" in response.data
-    assert b"Organization: Learning-DevOps-LLC" in response.data
-    assert b"Connect with me" in response.data
+def test_health(client):
+    response = client.get('/health')
+    assert response.status_code == 200
+    assert response.json == {"status": "ok", "message": "Service is healthy"}
