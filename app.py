@@ -64,7 +64,7 @@ HTML_TEMPLATE = """
   </header>
 
   <main>
-    <h2>Hello, Ashish Singh</h2>
+    <h2><i>Hello, Ashish Singh<i></h2>
     <div class="org-name">Organization: Learning-DevOps-LLC</div>
     <div class="dynamic-msg">{{ message }}</div>
 
