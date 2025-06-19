@@ -1,3 +1,4 @@
+<!-- templates/index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,11 +51,6 @@
     .icon {
       margin-right: 5px;
     }
-    .server-time {
-      margin-top: 1em;
-      font-weight: bold;
-      color: #cc6600;
-    }
   </style>
 </head>
 <body>
@@ -63,20 +59,24 @@
   </header>
 
   <main>
-    <h2><i>Hello, Ashish Singh</i></h2>
+    <h2>Hello, Anirudh Sharma</h2>
     <div class="org-name">Organization: Learning-DevOps-LLC</div>
-
-    <!-- New dynamic server time passed from Flask -->
-    <div class="server-time">Server Time: {{ server_time }}</div>
-
     <div class="dynamic-msg" id="dynamicMessage"></div>
 
     <div class="connects">
       <h3>Connect with me</h3>
-      <a href="https://github.com/ASHISHs21" target="_blank">🔗 GitHub</a>
-      <a href="https://www.linkedin.com/in/ashish-singh-874012195/" target="_blank">💼 LinkedIn</a>
-      <a href="mailto:ksinghashish357@gmail.com">✉️ Email</a>
-      <a href="https://ashishs21.github.io/portfolio/" target="_blank">🌐 Portfolio</a>
+      <a href="https://github.com/ASHISHs21" target="_blank">
+        🔗 GitHub
+      </a>
+      <a href="https://www.linkedin.com/in/ashish-singh-874012195/" target="_blank">
+        💼 LinkedIn
+      </a>
+      <a href="mailto:ksinghashish357@gmail.com">
+        ✉️ Email
+      </a>
+      <a href="https://ashishs21.github.io/portfolio/" target="_blank">
+        🌐 Portfolio
+      </a>
     </div>
   </main>
 
@@ -85,7 +85,6 @@
   </footer>
 
   <script>
-    // This stays as client-side page load time
     const message = `Page loaded on ${new Date().toLocaleString()}`;
     document.getElementById('dynamicMessage').textContent = message;
   </script>

@@ -9,10 +9,9 @@ def client():
 def test_home(client):
     response = client.get('/')
     assert response.status_code == 200
-
     # Check for key HTML content
     assert b"Jarvis - GitHub Actions" in response.data
-    assert b"Hello, Ashish Singh" in response.data
+    assert b"Hello, Anirudh Sharma" in response.data
     assert b"Connect with me" in response.data
     assert b"GitHub" in response.data
     assert b"LinkedIn" in response.data
