@@ -1,10 +1,3 @@
-
-from flask import Flask, render_template, jsonify
-from datetime import datetime
-
-app = Flask(__name__)
-
-HTML_TEMPLATE = """
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +6,7 @@ HTML_TEMPLATE = """
   <meta name="description" content="A webpage powered by GitHub Actions and created by Ashish Singh." />
   <meta name="author" content="Ashish Singh - Learning-DevOps-LLC" />
   <title>Ashish Singh | GitHub Actions</title>
-  <link rel="icon" href="/static/favicon.ico" />
+  <link rel="icon" href="favicon.ico" />
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -57,6 +50,11 @@ HTML_TEMPLATE = """
     .icon {
       margin-right: 5px;
     }
+    .server-time {
+      margin-top: 1em;
+      font-weight: bold;
+      color: #cc6600;
+    }
   </style>
 </head>
 <body>
@@ -65,43 +63,31 @@ HTML_TEMPLATE = """
   </header>
 
   <main>
-    <h2>Hello, Anirudh Singh</h2>
+    <h2>Hello, Ashish Singh</h2>
     <div class="org-name">Organization: Learning-DevOps-LLC</div>
-    <div class="dynamic-msg">{{ message }}</div>
+
+    <!-- New dynamic server time passed from Flask -->
+    <div class="server-time">Server Time: {{ server_time }}</div>
+
+    <div class="dynamic-msg" id="dynamicMessage"></div>
 
     <div class="connects">
       <h3>Connect with me</h3>
-      <a href="https://github.com/ASHISHs21" target="_blank" rel="noopener noreferrer">
-        🔗 GitHub
-      </a>
-      <a href="https://www.linkedin.com/in/ashish-singh-874012195/" target="_blank" rel="noopener noreferrer">
-        💼 LinkedIn
-      </a>
-      <a href="mailto:ksinghashish357@gmail.com">
-        ✉️ Email
-      </a>
-      <a href="https://ashishs21.github.io/portfolio/" target="_blank" rel="noopener noreferrer">
-        🌐 Portfolio
-      </a>
+      <a href="https://github.com/ASHISHs21" target="_blank">🔗 GitHub</a>
+      <a href="https://www.linkedin.com/in/ashish-singh-874012195/" target="_blank">💼 LinkedIn</a>
+      <a href="mailto:ksinghashish357@gmail.com">✉️ Email</a>
+      <a href="https://ashishs21.github.io/portfolio/" target="_blank">🌐 Portfolio</a>
     </div>
   </main>
 
   <footer>
     &copy; 2025 Ashish Singh | Powered by GitHub Actions
   </footer>
+
+  <script>
+    // This stays as client-side page load time
+    const message = `Page loaded on ${new Date().toLocaleString()}`;
+    document.getElementById('dynamicMessage').textContent = message;
+  </script>
 </body>
 </html>
-"""
-
-@app.route("/")
-def home():
-
-    server_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    return render_template("index.html", server_time=server_time)
-
-@app.route('/health')
-def health():
-    return jsonify(status="ok", message="Service is healthy")
-
-if __name__ == "__main__":
-    app.run(debug=True)

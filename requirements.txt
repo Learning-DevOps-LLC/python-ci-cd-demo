@@ -1,2 +1,4 @@
-flask
-pytest
+Flask==3.0.3
+pytest==8.2.1
+coverage
+pytest-cov
